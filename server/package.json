@@ -17,5 +17,13 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ansonj712/Recipes.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ansonj712/Recipes/issues"
+  },
+  "homepage": "https://github.com/ansonj712/Recipes#readme"
 }
