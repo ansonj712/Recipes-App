@@ -4,8 +4,11 @@
   "description": "Recipes from items in your fridge",
   "main": "server.js",
   "scripts": {
+    "client-install": "npm install client",
     "start": "node server.js",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "client": "npm start --prefix ../client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Anson Jiang",
   "license": "MIT",
