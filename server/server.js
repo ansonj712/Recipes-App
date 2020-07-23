@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cors = require('cors')
 const ingredientsRouter = require('./routes/ingredients');
 
 const app = express();
@@ -11,6 +12,8 @@ const port = process.env.PORT || 5000;
 
 /* APIs */
 app.use(bodyParser.json());
+
+app.use(cors());
 
 app.use('/api/ingredients', ingredientsRouter);
 
