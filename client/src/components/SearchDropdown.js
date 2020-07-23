@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import { Dropdown } from 'semantic-ui-react'
 
-
-class SearchBar extends Component {
+class SearchDropdown extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      options: []
-    }
+      options: [],
+      selected: []
+    };
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
@@ -18,12 +19,18 @@ class SearchBar extends Component {
           options: data.map(ingredient => {
             return { key: ingredient.name, text: ingredient.name, value: ingredient.name }
           })
-      })})
-      .catch(console.log)
+        })
+      })
+      .catch()
   }
-  
+
+  handleChange(e, {value}) {
+    this.setState({
+      selected: value
+    }, () => { this.props.onChange(this.state) });
+  }
+
   render() {
-    const options = this.state.options;
     return (
       <Dropdown
         placeholder='Enter your ingredients here'
@@ -31,10 +38,11 @@ class SearchBar extends Component {
         multiple
         search
         selection
-        options={options}
+        onChange={this.handleChange}
+        options={this.state.options}
       />
     );
   }
 }
 
-export default SearchBar;
+export default SearchDropdown;
