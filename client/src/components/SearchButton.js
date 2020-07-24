@@ -17,8 +17,16 @@ class SearchButton extends Component {
       .then((data) => {
         console.log(data);
         this.setState({
-          recipes: data
-        })
+          recipes: data.hits.map(hit => {
+            return { 
+              name: hit.recipe.label, 
+              ingredients: hit.recipe.ingredientLines, 
+              image: hit.recipe.image,
+              url: hit.recipe.url,
+              source: hit.recipe.source 
+            };
+          })
+        }, () => { this.props.onClick(this.state) });
       })
       .catch(console.log)
   }

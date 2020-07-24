@@ -21,7 +21,7 @@ class SearchDropdown extends Component {
           })
         })
       })
-      .catch()
+      .catch(console.log)
   }
 
   handleChange(e, {value}) {
