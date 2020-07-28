@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const Ingredient = require('../models/ingredients');
+const Ingredient = require('../models/Ingredient');
 
 router.route('/').get((req, res) => {
   Ingredient.find()

@@ -1,31 +1,40 @@
-import React from 'react'
+import React, { Component } from 'react';
+import { Button, Item } from 'semantic-ui-react';
+import { connect } from 'react-redux';
 
-import { Item } from 'semantic-ui-react'
+class RecipesList extends Component {
+  render() {
+    const { recipes } = this.props.recipes;
 
-function RecipesList(props) {
-  const recipes = props.recipes;
+    return (
+      <Item.Group>{recipeList(recipes)}</Item.Group>
+    );
+  }
+}
 
-  const ingredientsList = (ingredients) => ingredients.map((ingredient, i) => 
+const ingredientsList = (ingredients) => ingredients.map((ingredient, i) => 
     <ul key={i}>
       <li>{ingredient}</li>
     </ul>
   );
 
-  const recipeList = recipes.map((recipe) => 
-    <Item key={recipe.name}>
-      <Item.Image size='medium' src={recipe.image} />
+const recipeList = (recipes) => recipes.map((recipe) => 
+  <Item key={recipe.id}>
+    <Item.Image size='medium' src={recipe.image} />
 
-      <Item.Content>
-        <Item.Header>{recipe.name}</Item.Header>
-        <Item.Meta>Ingredients</Item.Meta>
-        <Item.Description>{ingredientsList(recipe.ingredients)}</Item.Description>
-      </Item.Content>
-    </Item>
-  );
+    <Item.Content>
+      <Item.Header>{recipe.name}</Item.Header>
+      <Item.Meta>Ingredients</Item.Meta>
+      <Item.Description>{ingredientsList(recipe.ingredients)}</Item.Description>
+      <Item.Extra><Button href={recipe.url} target="_blank">More Info</Button></Item.Extra>
+    </Item.Content>
+  </Item>
+);
 
-  return (
-    <Item.Group>{recipeList}</Item.Group>
-  );
+const mapStateToProps = (state) => {
+  return {
+    recipes: state.recipes
+  }
 }
 
-export default RecipesList;
+export default connect(mapStateToProps)(RecipesList);

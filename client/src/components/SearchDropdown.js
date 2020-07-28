@@ -1,27 +1,19 @@
-import React, { Component } from 'react'
-import { Dropdown } from 'semantic-ui-react'
+import React, { Component } from 'react';
+import { Dropdown } from 'semantic-ui-react';
+import { connect } from 'react-redux';
+import { fetchIngredients } from '../actions/ingredientActions';
 
 class SearchDropdown extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      options: [],
       selected: []
     };
     this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
-    fetch('http://localhost:5000/api/ingredients')
-      .then(res => res.json())
-      .then((data) => { 
-        this.setState({
-          options: data.map(ingredient => {
-            return { key: ingredient.name, text: ingredient.name, value: ingredient.name }
-          })
-        })
-      })
-      .catch(console.log)
+    this.props.fetchIngredients();
   }
 
   handleChange(e, {value}) {
@@ -31,6 +23,8 @@ class SearchDropdown extends Component {
   }
 
   render() {
+    const { options } = this.props;
+
     return (
       <Dropdown
         placeholder='Enter your ingredients here'
@@ -39,10 +33,22 @@ class SearchDropdown extends Component {
         search
         selection
         onChange={this.handleChange}
-        options={this.state.options}
+        options={options.ingredients}
       />
     );
   }
 }
 
-export default SearchDropdown;
+const mapStateToProps = (state) => {
+  return {
+    options: state.ingredients
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchIngredients: () => dispatch(fetchIngredients())
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchDropdown);
