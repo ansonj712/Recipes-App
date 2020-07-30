@@ -7,9 +7,8 @@ export function fetchRecipes(ingredients) {
       .then(res => 
         dispatch({
           type: GET_RECIPES,
-          payload: res.data.hits.map((hit, i) => {
+          payload: res.data.hits.map((hit) => {
             return { 
-              id: i,
               name: hit.recipe.label, 
               ingredients: hit.recipe.ingredientLines, 
               image: hit.recipe.image,

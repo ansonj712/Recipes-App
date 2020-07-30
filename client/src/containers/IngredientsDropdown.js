@@ -3,7 +3,7 @@ import { Dropdown } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { fetchIngredients } from '../actions/ingredientActions';
 
-class SearchDropdown extends Component {
+class Ingredients extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -51,4 +51,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchDropdown);
+export default connect(mapStateToProps, mapDispatchToProps)(Ingredients);

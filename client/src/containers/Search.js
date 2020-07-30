@@ -3,7 +3,7 @@ import { Button } from 'semantic-ui-react'
 import { connect } from 'react-redux';
 import { fetchRecipes } from '../actions/recipeActions';
 
-class SearchButton extends Component {
+class Search extends Component {
   render() {
     return <Button onClick={() => this.props.fetchRecipes(this.props.ingredients)}>Get Recipes</Button>
   }
@@ -21,4 +21,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchButton);
+export default connect(mapStateToProps, mapDispatchToProps)(Search);
