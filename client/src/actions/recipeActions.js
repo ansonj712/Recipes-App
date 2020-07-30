@@ -3,7 +3,7 @@ import { GET_RECIPES } from './types';
 
 export function fetchRecipes(ingredients) {
   return function(dispatch) {
-    axios.get("https://api.edamam.com/search?q=" + ingredients + "&app_id=57f5e752&app_key=781a726ba413561209ec885eac5d0f99")
+    axios.get(process.env.REACT_APP_EDAMAM_API_URL + "?q=" + ingredients + "&app_id=" + process.env.REACT_APP_EDAMAM_APP_ID + "&app_key=" + process.env.REACT_APP_EDAMAM_APP_KEY)
       .then(res => 
         dispatch({
           type: GET_RECIPES,
