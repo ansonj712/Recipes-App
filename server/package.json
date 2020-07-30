@@ -25,6 +25,9 @@
   "devDependencies": {
     "nodemon": "^2.0.4"
   },
+  "engines": {
+    "node": "12.18.3"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ansonj712/Recipes.git"
