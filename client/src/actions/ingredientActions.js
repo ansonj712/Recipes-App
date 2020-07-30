@@ -3,7 +3,7 @@ import { GET_INGREDIENTS } from './types';
 
 export function fetchIngredients() {
   return function(dispatch) {
-    axios.get('http://localhost:5000/api/ingredients')
+    axios.get('/api/ingredients')
       .then(res =>
         dispatch({
           type: GET_INGREDIENTS,
