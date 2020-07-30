@@ -1,5 +1,7 @@
-const router = require('express').Router();
-const Ingredient = require('../models/Ingredient');
+import express from 'express';
+import Ingredient from '../models/Ingredient.js';
+
+const router = express.Router();
 
 router.route('/').get((req, res) => {
   Ingredient.find()
@@ -8,4 +10,4 @@ router.route('/').get((req, res) => {
     .catch((err) => console.log(err));
 });
 
-module.exports = router;
+export default router;
