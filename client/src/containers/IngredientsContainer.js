@@ -3,7 +3,7 @@ import { Dropdown } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { fetchIngredients } from '../actions/ingredientActions';
 
-class Ingredients extends Component {
+class IngredientsContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,6 +22,11 @@ class Ingredients extends Component {
     }, () => { this.props.onChange(this.state) });
   }
 
+  handleAddition = (e, { value }) => {
+    const { options } = this.props;
+    options.ingredients.push({ text: value, value });
+  }
+
   render() {
     const { options } = this.props;
 
@@ -32,7 +37,9 @@ class Ingredients extends Component {
         multiple
         search
         selection
+        allowAdditions
         onChange={this.handleChange}
+        onAddItem={this.handleAddition}
         options={options.ingredients}
       />
     );
@@ -51,4 +58,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Ingredients);
+export default connect(mapStateToProps, mapDispatchToProps)(IngredientsContainer);

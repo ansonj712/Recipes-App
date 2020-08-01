@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { Item } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import RecipesList from '../components/RecipesList';
+import Recipes from '../components/Recipes';
 
-class Recipes extends Component {
+class RecipesContainer extends Component {
   render() {
     const { recipes } = this.props.recipes;
 
     return (
       <Item.Group className="recipe list">
-        <RecipesList recipes={recipes} />
+        <Recipes recipes={recipes} />
       </Item.Group>
     );
   }
@@ -21,4 +21,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(Recipes);
+export default connect(mapStateToProps)(RecipesContainer);

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import SearchDropdown from '../containers/IngredientsDropdown'
-import SearchButton from '../containers/Search'
-import Recipes from '../containers/Recipes'
+import IngredientsContainer from '../containers/IngredientsContainer'
+import SearchContainer from '../containers/SearchContainer'
+import RecipesContainer from '../containers/RecipesContainer'
 import { Container, Divider, Header, Responsive } from 'semantic-ui-react'
 
 class Home extends Component {
@@ -25,10 +25,10 @@ class Home extends Component {
         <Responsive as={Container}>
           <Header as='h1'>Last Minute Recipes</Header>
           <p>Find recipes from your own fridge</p>
-          <SearchDropdown onChange={this.handleChange}/>
+          <IngredientsContainer onChange={this.handleChange} />
           <Divider hidden />
-          <SearchButton ingredients={this.state.ingredients} />
-          <Recipes />
+          <SearchContainer ingredients={this.state.ingredients} />
+          <RecipesContainer />
         </Responsive>
       </div>
     );

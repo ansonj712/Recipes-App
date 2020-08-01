@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Button, Item } from 'semantic-ui-react';
-import RecipeIngredientsList from './RecipeIngredientsList';
+import IngredientsList from './IngredientsList';
 
-class RecipeItem extends Component {
+class Recipe extends Component {
   render() {
     const recipe = this.props.recipe;
 
@@ -14,7 +14,7 @@ class RecipeItem extends Component {
           <Item.Header>{recipe.name}</Item.Header>
           <Item.Meta>Ingredients</Item.Meta>
           <Item.Description>
-            <RecipeIngredientsList ingredients={recipe.ingredients} />
+            <IngredientsList ingredients={recipe.ingredients} />
           </Item.Description>
           <Item.Extra>
             <Button href={recipe.url} target="_blank">More Info</Button>
@@ -25,4 +25,4 @@ class RecipeItem extends Component {
   }
 }
 
-export default RecipeItem;
+export default Recipe;

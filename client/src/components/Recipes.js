@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import RecipeItem from './RecipeItem';
+import Recipe from './Recipe';
 
-class RecipesList extends Component {
+class Recipes extends Component {
   render() {
     const recipes = this.props.recipes;
 
     return (
       recipes.map((recipe, i) => 
-        <RecipeItem key={i} recipe={recipe} />
+        <Recipe key={i} recipe={recipe} />
       )
     );
   }
 }
 
-export default RecipesList;
+export default Recipes;
