@@ -1,6 +1,40 @@
 {
+  "name": "recipes",
+  "version": "1.0.0",
+  "description": "Recipes from items in your fridge",
+  "main": "server.js",
   "scripts": {
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false cd client && npm install && npm run build",
-    "start": "cd server && npm install && npm run start"
-  }
+    "client-install": "npm install --prefix client",
+    "start": "node --no-warnings --experimental-modules --experimental-specifier-resolution=node server.js",
+    "server": "nodemon --experimental-modules --experimental-specifier-resolution=node server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+  },
+  "author": "Anson Jiang",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "concurrently": "^5.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.25"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "engines": {
+    "node": "12.18.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ansonj712/Recipes.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ansonj712/Recipes/issues"
+  },
+  "homepage": "https://github.com/ansonj712/Recipes#readme"
 }
