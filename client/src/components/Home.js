@@ -23,7 +23,7 @@ class Home extends Component {
     return (
       <div className="top">
         <Responsive as={Container}>
-          <Header as='h1'>Last Minute Recipes</Header>
+          <Header as='h1'>Recipes App</Header>
           <p>Find recipes from your own fridge</p>
           <IngredientsContainer onChange={this.handleChange} />
           <Divider hidden />

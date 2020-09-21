@@ -1,5 +1,5 @@
 {
-  "name": "recipes",
+  "name": "recipes-app",
   "version": "1.0.0",
   "description": "Recipes from items in your fridge",
   "main": "server.js",

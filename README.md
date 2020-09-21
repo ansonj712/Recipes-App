@@ -1,4 +1,4 @@
-Last Minute Recipes
+Recipes App
 ============
 
 A simple recipe finder application
