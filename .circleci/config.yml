@@ -1,0 +1,11 @@
+version: 2.1
+
+jobs:
+  build:
+    working_directory: ~/app
+    docker:
+      - image: circleci/node:12.18.4-browsers
+    steps:
+      - checkout
+      - run: yarn install && yarn run build
+      - run: cd client && yarn install && yarn run build
